@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rechentrainer Plus und Minus</title>
+<style>
+:root{--bg:#f3f5f8;--card:#fff;--ink:#1d2733;--mut:#5b6773;--line:#cfd7e0;--acc:#1f63c9;--accd:#174c9c;--ok:#1f8a4c;--okbg:#e5f5ec;--err:#b8321f;--errbg:#fbeae7;--hint:#7a5200;--hintbg:#fff6dc;--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg font-family='Arial%2Csans-serif' font-weight='700' font-size='38' opacity='.17'%3E%3Ctext x='18' y='52' fill='%23ff8a3d' transform='rotate(-12 18 52)'%3E%2B%3C/text%3E%3Ctext x='130' y='40' fill='%232f7de1'%3E%E2%88%92%3C/text%3E%3Ctext x='80' y='122' fill='%2325a56a' transform='rotate(10 80 122)'%3E=%3C/text%3E%3Ctext x='168' y='112' fill='%23b05be0'%3E7%3C/text%3E%3Ctext x='18' y='176' fill='%23e0527a' transform='rotate(8 18 176)'%3E12%3C/text%3E%3Ctext x='122' y='204' fill='%232f7de1'%3E%2B%3C/text%3E%3C/g%3E%3C/svg%3E");--g1:#ffe9d2;--g2:#e6f1ff;--g3:#efe3ff;--b1:rgba(255,170,100,.5);--b2:rgba(110,160,255,.42);--sh:rgba(40,60,120,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171c22;--card:#222a33;--ink:#eef2f6;--mut:#a7b2bd;--line:#44505c;--acc:#6aa5ff;--accd:#4f8de6;--ok:#58c985;--okbg:#1d3a2b;--err:#ff8a78;--errbg:#43231f;--hint:#ffd277;--hintbg:#403418;--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg font-family='Arial%2Csans-serif' font-weight='700' font-size='38' opacity='.13'%3E%3Ctext x='18' y='52' fill='%23ffb36b' transform='rotate(-12 18 52)'%3E%2B%3C/text%3E%3Ctext x='130' y='40' fill='%237fb2ff'%3E%E2%88%92%3C/text%3E%3Ctext x='80' y='122' fill='%236fdca0' transform='rotate(10 80 122)'%3E=%3C/text%3E%3Ctext x='168' y='112' fill='%23d4a0ff'%3E7%3C/text%3E%3Ctext x='18' y='176' fill='%23ff8fb0' transform='rotate(8 18 176)'%3E12%3C/text%3E%3Ctext x='122' y='204' fill='%237fb2ff'%3E%2B%3C/text%3E%3C/g%3E%3C/svg%3E");--g1:#1b2233;--g2:#182a45;--g3:#2a2149;--b1:rgba(255,140,70,.18);--b2:rgba(90,130,255,.22);--sh:rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#171c22;--card:#222a33;--ink:#eef2f6;--mut:#a7b2bd;--line:#44505c;--acc:#6aa5ff;--accd:#4f8de6;--ok:#58c985;--okbg:#1d3a2b;--err:#ff8a78;--errbg:#43231f;--hint:#ffd277;--hintbg:#403418;--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg font-family='Arial%2Csans-serif' font-weight='700' font-size='38' opacity='.13'%3E%3Ctext x='18' y='52' fill='%23ffb36b' transform='rotate(-12 18 52)'%3E%2B%3C/text%3E%3Ctext x='130' y='40' fill='%237fb2ff'%3E%E2%88%92%3C/text%3E%3Ctext x='80' y='122' fill='%236fdca0' transform='rotate(10 80 122)'%3E=%3C/text%3E%3Ctext x='168' y='112' fill='%23d4a0ff'%3E7%3C/text%3E%3Ctext x='18' y='176' fill='%23ff8fb0' transform='rotate(8 18 176)'%3E12%3C/text%3E%3Ctext x='122' y='204' fill='%237fb2ff'%3E%2B%3C/text%3E%3C/g%3E%3C/svg%3E");--g1:#1b2233;--g2:#182a45;--g3:#2a2149;--b1:rgba(255,140,70,.18);--b2:rgba(90,130,255,.22);--sh:rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0}
+:root{--j1:var(--acc);--j2:#d9640f}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--j2:#ff9a4d}}:root[data-theme="dark"]{--j2:#ff9a4d}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--pat),radial-gradient(circle at 10% 6%,var(--b1),transparent 40%),radial-gradient(circle at 92% 92%,var(--b2),transparent 42%),linear-gradient(155deg,var(--g1),var(--g2) 52%,var(--g3));background-attachment:fixed;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+#app{max-width:520px;margin:0 auto;padding:16px 16px 28px;min-height:100%}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+h1{font-size:30px;font-weight:800;margin-bottom:4px;background:linear-gradient(90deg,#2f7de1,#b05be0 55%,#ee7a1f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:17px;line-height:1.4;margin-bottom:8px}
+h2{font-size:16px;font-weight:700;margin:22px 0 8px;display:flex;align-items:center;gap:8px}h2::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c,var(--acc))}
+.note{color:var(--mut);font-size:15px;line-height:1.4;margin-top:6px}
+.seg{display:grid;gap:8px}.s2{grid-template-columns:repeat(2,1fr)}.s3{grid-template-columns:repeat(3,1fr)}.s4{grid-template-columns:repeat(4,1fr)}
+.sg{padding:13px 6px;border:2px solid var(--line);border-radius:12px;background:var(--card);font-size:18px;text-align:center;box-shadow:0 3px 0 var(--line)}
+.seg{--c:var(--acc)}.seg[data-c="o"]{--c:#d9640f}.seg[data-c="p"]{--c:#8a45c7}.seg[data-c="g"]{--c:#1f8a4c}
+.sg[aria-pressed="true"]{border-color:var(--c);background:var(--c);color:#fff;font-weight:700}
+.sg:disabled{opacity:.45;cursor:not-allowed}
+.primary{display:block;width:100%;padding:16px;border-radius:14px;background:linear-gradient(90deg,#2f7de1,#6a5be0);color:#fff;font-size:20px;font-weight:700;margin-top:26px;box-shadow:0 6px 16px rgba(47,125,225,.35)}
+.primary:active{background:var(--accd)}
+.sec{display:block;width:100%;padding:13px;border-radius:10px;border:2px solid var(--line);background:var(--card);font-size:18px;margin-top:10px}
+.head span{white-space:nowrap}.head{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--mut);font-size:16px;margin-bottom:10px}
+.head button{padding:8px 12px;border:2px solid var(--line);border-radius:10px;background:var(--card);font-size:16px;color:var(--ink)}
+.bar{height:6px;border-radius:6px;background:var(--line);margin-bottom:14px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#ff8a3d,#2f7de1,#25a56a)}
+.card{position:relative;overflow:hidden;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:22px 12px 16px;box-shadow:0 10px 26px var(--sh)}.card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#ff8a3d,#2f7de1,#25a56a,#b05be0)}
+.eq{display:flex;align-items:center;justify-content:center;gap:clamp(4px,2.4vw,16px);flex-wrap:nowrap;font-size:clamp(26px,8.6vw,48px);max-width:100%;font-weight:700;white-space:nowrap}
+.eq .op{color:var(--mut);font-weight:600}
+.n{min-width:1.1em;text-align:center}
+.fld{min-width:2.3em;height:var(--fb,56px);padding:0 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);font-size:32px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;color:var(--ink)}
+.fld.act{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc),transparent 75%)}
+.fld.ok{border-color:var(--ok);background:var(--okbg);color:var(--ok)}
+.j1{--jc:var(--j1)}.j2{--jc:var(--j2)}b.j1,b.j2{color:var(--jc);font-weight:800}
+.fld.j1,.fld.j2{border-color:color-mix(in srgb,var(--jc),transparent 45%)}
+.fld.j1.act,.fld.j2.act{border-color:var(--jc);box-shadow:0 0 0 3px color-mix(in srgb,var(--jc),transparent 75%)}
+.fld.j1.ok,.fld.j2.ok{border-color:var(--jc);background:color-mix(in srgb,var(--jc),transparent 86%);color:var(--jc)}
+.fld.sm{height:var(--fh,50px);min-width:2.1em;padding:0 clamp(4px,2vw,10px);font-size:clamp(22px,6.4vw,28px)}
+.steps{margin:16px auto 0;max-width:340px;font-size:clamp(22px,6.6vw,32px);font-weight:700}
+.st{display:flex;align-items:center;justify-content:center;gap:clamp(4px,2vw,10px);margin:10px 0;white-space:nowrap}.st small{font-size:clamp(11px,3.4vw,15px);color:var(--mut);font-weight:600;min-width:0;width:clamp(44px,15vw,62px);text-align:right;line-height:1.1;white-space:normal}
+.msg{min-height:58px;margin:12px 0 4px;padding:10px 12px;border-radius:10px;font-size:18px;line-height:1.4;border-left:6px solid transparent}
+.msg.hint{background:var(--hintbg);color:var(--hint);border-color:var(--hint)}.msg.err{background:var(--errbg);color:var(--err);border-color:var(--err)}.msg.ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}.msg.info{background:var(--card);color:var(--mut);border-color:var(--line)}
+.tools{display:grid;grid-template-columns:1fr 1.3fr;gap:8px;margin:10px 0 8px}.tools.t3{grid-template-columns:.9fr 1.25fr 1.3fr}.tools.t3 .help{padding-left:4px;padding-right:4px;font-size:clamp(13px,3.6vw,17px);line-height:1.1}.help[aria-pressed="true"]{border-color:var(--acc);background:color-mix(in srgb,var(--acc),transparent 84%);color:var(--acc);font-weight:700}
+.help{padding:13px;border:2px solid var(--line);border-radius:12px;background:var(--card);font-size:18px;box-shadow:0 3px 0 var(--line)}#hp{border-color:#e0a21a;background:var(--hintbg);color:var(--hint);font-weight:700}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.k{height:clamp(54px,9vh,66px);border:2px solid var(--line);border-radius:12px;background:var(--card);font-size:26px;font-weight:600;box-shadow:0 3px 0 var(--line)}.k[data-k="x"]{background:var(--errbg);color:var(--err)}
+.k:active{background:var(--line)}.k.ok{background:var(--acc);border-color:var(--acc);color:#fff;font-size:20px;font-weight:700}
+.pad.off .k{opacity:.4;pointer-events:none}
+.next{display:block;width:100%;padding:16px;border-radius:10px;background:var(--ok);color:#fff;font-size:20px;font-weight:700;margin-top:10px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:18px}th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mut);font-size:15px}
+
+.bw{position:relative;display:inline-flex;flex-direction:column;align-items:center}
+.sp{padding:2px clamp(6px,2.6vw,14px);border:3px solid var(--acc);border-radius:14px;background:color-mix(in srgb,var(--acc),transparent 86%);color:var(--acc);font-weight:800;box-shadow:0 4px 0 var(--acc)}
+.sp:active{transform:translateY(2px);box-shadow:0 2px 0 var(--acc)}
+.cap{position:absolute;top:100%;margin-top:8px;font-size:14px;font-weight:700;color:var(--acc);white-space:nowrap}
+.eq.hascap{margin-bottom:24px}
+.treebox{position:relative;height:calc(var(--lh,46px) + var(--fh,50px) + 12px);margin:4px 0 0;flex:none}
+.treebox svg{position:absolute;left:0;top:0;width:100%;height:var(--lh,46px)}
+.treebox line{stroke:var(--mut);stroke-width:3;stroke-linecap:round}
+.tw{position:absolute;top:calc(var(--lh,46px) + 6px);transform:translateX(-50%);display:flex}
+
+.nlw{flex:none;margin-top:clamp(2px,.8vh,8px)}.nls{display:block;width:100%;max-width:340px;margin:0 auto;height:calc(var(--nlh,76px)*var(--k,1))}
+/* Übungsansicht: passt immer auf einen Bildschirm */
+html{height:100dvh}body{height:100dvh;overflow:hidden}
+#app:has(.play){height:100%;min-height:0;padding:8px 12px 10px;display:flex;flex-direction:column}
+.play{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;--fh:clamp(36px,6.4vh,50px);--fb:clamp(40px,7.2vh,56px);--lh:clamp(26px,4.6vh,46px);--nlh:clamp(80px,12.5vh,112px)}
+.pl{flex:1;min-height:0;display:flex;flex-direction:column}
+.pr{flex:none}
+.play .head{margin-bottom:6px;font-size:clamp(13px,2.2vh,16px)}.play .head button{padding:clamp(4px,.9vh,8px) 12px}
+.play .bar{margin-bottom:8px}
+.play .card{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(12px,2.2vh,22px) 10px clamp(8px,1.6vh,16px)}
+.play .eq{font-size:clamp(24px,min(8.6vw,6vh),40px)}
+.play .eq.hascap{margin-bottom:clamp(16px,2.6vh,24px)}
+.play .steps{margin-top:clamp(6px,1.4vh,16px);font-size:clamp(20px,min(6.6vw,4.4vh),32px)}
+.play .st{margin:clamp(4px,1vh,10px) 0}
+.play .msg{flex:none;height:auto;min-height:clamp(40px,7vh,58px);margin:8px 0 0;padding:6px 10px;font-size:clamp(13.5px,2.1vh,17px);line-height:1.3;display:flex;align-items:center}
+.play .tools{margin:0 0 6px}.play .help,.play .next{padding:clamp(7px,1.4vh,13px);font-size:clamp(16px,2.4vh,18px);margin:0;min-height:clamp(38px,6vh,48px)}
+.play .next{margin:0 0 6px;padding:clamp(7px,1.4vh,13px)}
+.play .tools{margin-top:0}
+.play .pad{gap:clamp(5px,.9vh,8px)}.play .k{height:clamp(36px,6.2vh,66px);font-size:clamp(20px,3vh,26px)}.play .k.ok{font-size:clamp(16px,2.6vh,20px)}
+.play.wnl{--fh:clamp(30px,5vh,44px);--lh:clamp(16px,3.2vh,32px)}
+.play.wnl{--nlh:clamp(72px,10.5vh,100px)}
+.play.wnl .steps{font-size:clamp(18px,min(6vw,3.8vh),28px);margin-top:clamp(4px,.8vh,10px)}.play.wnl .st{margin:clamp(2px,.6vh,6px) 0}
+.play.wnl .eq{font-size:clamp(22px,min(8vw,5vh),40px)}.play.wnl .eq.hascap{margin-bottom:clamp(14px,2vh,20px)}
+.play.wnl .card{padding-top:clamp(10px,1.6vh,16px);padding-bottom:6px}
+.play.wnl .k{height:clamp(34px,5.6vh,60px)}.play.wnl .msg{font-size:clamp(13px,1.9vh,16px);padding:4px 10px}
+@media (orientation:portrait) and (max-height:620px){
+ .play{gap:4px;--fh:32px;--fb:36px;--lh:20px}
+ #app:has(.play){padding:6px 10px 8px}
+ .play .head{margin-bottom:4px}.play .bar{margin-bottom:5px;height:5px}
+ .play .k{height:36px;font-size:20px}.play .pad{gap:5px}
+ .play .help,.play .next{min-height:34px;padding:5px}.play .tools{margin-bottom:5px}
+ .play .msg{height:auto;min-height:38px;margin-top:5px;font-size:13px;padding:4px 8px}
+ .play .card{padding:8px 8px 6px}
+ .play .eq{font-size:clamp(22px,min(8vw,5.2vh),30px)}.play .eq.hascap{margin-bottom:14px}
+ .play .steps{font-size:clamp(18px,5.6vw,22px);margin-top:4px}.play .st{margin:3px 0}
+ .play .sp{border-width:2px;box-shadow:0 3px 0 var(--acc);padding-top:0;padding-bottom:0}
+ .play.wnl{--fh:28px;--fb:32px;--lh:14px;--nlh:72px}.play.wnl .k{height:32px}.play.wnl .steps{font-size:clamp(17px,5.2vw,20px)}.play.wnl .eq{font-size:clamp(20px,min(7.4vw,4.6vh),26px)}
+}
+@media (orientation:landscape) and (max-height:560px){
+ #app:has(.play){max-width:900px}
+ .play{flex-direction:row;gap:14px;--fh:clamp(30px,10vh,44px);--fb:clamp(34px,11vh,50px);--lh:clamp(20px,7vh,34px)}
+ .pl{flex:1.6}.pr{flex:1;display:flex;flex-direction:column;justify-content:flex-end;min-height:0}
+ .play .k{height:auto;flex:1;min-height:30px}.play .pad{flex:1;min-height:0;grid-auto-rows:1fr}
+ .play .eq{font-size:clamp(22px,min(5vw,10vh),44px)}
+ .play .msg{height:auto;min-height:clamp(32px,10vh,50px);font-size:13px;padding:3px 8px;margin-top:5px}
+ .play.wnl .card{padding-top:8px;padding-bottom:4px}.play.wnl .nlw{margin-top:0}.play.wnl .st{margin:1px 0}.play.wnl .steps{margin-top:2px}.play.wnl .treebox{margin-top:0}
+ .play .steps{font-size:clamp(18px,min(3.4vw,7vh),28px)}
+}
+@media print{body{background:#fff;color:#000}.noprint{display:none!important}}
+</style></head><body>
+<div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),app=$('#app'),R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const OPS=['Plus','Minus','Gemischt'],RGN=[10,20,100,1000],NUM=[5,10,15,20];
+const def={mode:0,rg:1,help:true,n:10};
+let S;try{S=Object.assign({},def,JSON.parse(localStorage.getItem('rt1')||'{}'))}catch(e){S=Object.assign({},def)}
+const save=()=>{try{localStorage.setItem('rt1',JSON.stringify(S))}catch(e){}};
+// Zerlegung beim Zehnerübergang: Die erste Zahl macht die Zehn voll (Plus) oder geht bis zur vollen Zehn zurück (Minus).
+function info(a,b,k){const o=a%10;
+ if(k=='+'){if(o>0&&o+b%10>=10){const c=10-o;if(b>c)return{c,rest:b-c,mid:a+c}}}
+ else if(o>0&&o<b%10)return{c:o,rest:b-o,mid:a-o};
+ return null}
+// Aufgaben: bei Minus ist a immer größer als b, das Ergebnis also nie negativ.
+function gen(){
+ const m=RGN[S.rg],k=S.mode==2?(Math.random()<.5?'+':'−'):'+−'[S.mode],help=S.help&&m>10,lo=m>=1000?100:m>=100?10:1,want=help&&Math.random()<.65;let a,b;
+ for(let n=0;n<400;n++){
+  if(m==10){if(k=='+'){a=R(1,9);b=R(1,10-a)}else{a=R(2,10);b=R(1,a-1)}break}
+  if(help){b=R(1,9);if(k=='+')a=R(lo,m-b);else a=R(Math.max(lo,b+1),m)}
+  else if(k=='+'){a=R(lo,m-1);b=R(1,m-a)}else{a=R(Math.max(lo,2),m);b=R(1,a-1)}
+  if(help){const i=info(a,b,k);if(want!==!!i)continue;if(k=='−'&&!i&&a%10==0)continue}
+  break}
+ return{a,b,k,m,r:k=='+'?a+b:a-b,inf:info(a,b,k)}}
+function newTasks(){const L=[],seen=new Set();for(let i=0;i<S.n;i++){let t,tries=0;do{t=gen();tries++}while(seen.has(t.a+t.k+t.b)&&tries<30);seen.add(t.a+t.k+t.b);L.push(t)}return L}
+// Hilfe: kurze Hinweise in drei Stufen, passend zum aktuellen Schritt
+function hintList(){
+ const t=G.t,{a,b,k,r,inf}=t,sp=G.sp,bt=b-b%10,bo=b%10,op=k;
+ if(inf&&S.help&&t.m>10){
+  if(!sp.open)return[`Teile die ${b} in zwei Zahlen. Tippe auf die ${b}.`,`Mach zuerst die Zehn voll: ${a} ${op} ? = ${inf.mid}.`,`Teile ${b} in ${inf.c} und ${inf.rest}.`];
+  if(!sp.valid)return[`Die zwei Zahlen müssen zusammen ${b} ergeben.`,`Eine Zahl macht die Zehn voll: ${a} ${op} ? = ${inf.mid}.`,`Du brauchst ${inf.c} und ${inf.rest}.`];
+  if(!G.mOk)return[`Rechne ${a} ${op} ${inf.c}.`,`${a} ${op} ${inf.c} = ${inf.mid}.`];
+  return[`Jetzt rechnest du ${inf.mid} ${op} ${inf.rest}.`,`${inf.mid} ${op} ${inf.rest} = ${r}.`]}
+ if(inf)return[`Mach zuerst die Zehn voll.`,`${a} ${op} ${inf.c} = ${inf.mid}. Dann noch ${op} ${inf.rest}.`,`${inf.mid} ${op} ${inf.rest} = ${r}.`];
+ if(k=='−'&&a%10==0&&bo>0)return[`Löse eine Zehn auf: 10 − ${bo} = ${10-bo}.`,`Rechne zuerst ${a} − ${bt}, dann noch − ${bo}.`,`Ergebnis: ${r}.`];
+ if(b>=10&&bo>0)return[`Rechne erst die Zehner, dann die Einer.`,`${a} ${op} ${bt} = ${k=='+'?a+bt:a-bt}. Dann noch ${op} ${bo}.`,`Ergebnis: ${r}.`];
+ if(b>=10)return[`Rechne mit ganzen Zehnern.`,`Ergebnis: ${r}.`];
+ if(t.m==10)return[`Zähle ${b} ${k=='+'?'weiter':'zurück'}.`,`${a} ${op} ${b} = ${r}.`];
+ return[`Hier gibt es keinen Zehnerübergang. Rechne nur die Einer: ${a%10} ${op} ${b}.`,`Die Zehner bleiben gleich.`,`${a} ${op} ${b} = ${r}.`]}
+
+// Zahlenstrahl: maßstabsgetreu mit Strichen (Einer klein, Fünfer länger, Zehner beschriftet).
+// Sprünge erscheinen nacheinander: nach richtigem Ergebnis, nach Hilfe oder wenn die Aufgabe gelöst ist.
+function nlData(t){
+ const {a,b,k,r,inf}=t,bt=b-b%10,bo=b%10,sg=k=='+'?1:-1;
+ if(inf)return{p:[a,inf.mid,r],j:[sg*inf.c,sg*inf.rest],tree:true};
+ if(k=='−'&&a%10==0&&bo>0)return b<10?{p:[a,a-10,r],j:[-10,10-bo]}:{p:[a,a-bt,r],j:[-bt,-bo]};
+ if(b>=10&&bo>0)return{p:[a,a+sg*bt,r],j:[sg*bt,sg*bo]};
+ return{p:[a,r],j:[sg*b]}}
+const nlVis=d=>d.j.map((_,i)=>!!(G.done||i<(G.rev||0)||(d.tree&&G.mOk&&i==0)));
+function nlReveal(){const n=nlData(G.t).j.length;
+ if(can()&&G.sp.valid)G.rev=Math.max(G.rev||0,G.mOk?2:1);
+ else if(!can())G.rev=Math.max(G.rev||0,Math.min(n,G.hi))}
+function nlSVG(){
+ const d=nlData(G.t),vis=nlVis(d),P=d.p,mix=d.j.length==2&&Math.sign(d.j[0])!=Math.sign(d.j[1]);
+ const mn=Math.min(...P),mx=Math.max(...P);
+ let lo=Math.floor(mn/10)*10,hi=Math.ceil(mx/10)*10;if(mn%10==0)lo-=10;if(mx%10==0)hi+=10;lo=Math.max(lo,0);
+ const span=hi-lo,fine=span<=60,LB=span<=120?10:100,step=fine?1:span<=450?10:50,X=v=>14+(v-lo)/span*272,base=46,
+  cols=['var(--j1)','var(--j2)'],known=P.map((_,i)=>i==0||vis[i-1]),isLab=v=>fine?v%10==0:v%LB==0,f=v=>v<0?'−'+(-v):'+'+v;
+ // Zeilen der Punktbeschriftung (unabhängig vom Lösungsstand, damit nichts springt)
+ const rows=[];let lx=-99,lr=2,use3=false;
+ P.map((v,i)=>[X(v),i]).sort((p,q)=>p[0]-q[0]).forEach(([x,i])=>{
+  if(isLab(P[i])){rows[i]=0;return}
+  const r=x-lx<30?(lr==1?2:1):1;rows[i]=r;lx=x;lr=r;if(r==2)use3=true});
+ const y1=base+21,y2=base+38,y3=base+57,rb=base+(use3?63:44),ys=(use3?y3:y2)+9,H=mix?ys+11+20:rb;
+ const hl={};P.forEach((v,i)=>{if(known[i])hl[v]=i==0?'var(--ink)':cols[i-1]});
+ let o=`<svg class="nls${mix?' mix':''}" style="--k:${(H/94).toFixed(3)}" viewBox="0 0 300 ${H}" role="img" aria-label="Zahlenstrahl mit ${d.j.length==1?'einem Sprung':'zwei Sprüngen'}"><line x1="6" y1="${base}" x2="294" y2="${base}" stroke="var(--mut)" stroke-width="2.5" stroke-linecap="round"/>`;
+ for(let v=Math.ceil(lo/step)*step;v<=hi;v+=step){
+  const x=X(v),lab=isLab(v),len=lab?16:(fine?v%5==0:v%50==0)?11:6,sw=lab?2.6:len==11?2.1:1.5;
+  o+=`<line x1="${x}" y1="${base-len/2}" x2="${x}" y2="${base+len/2}" stroke="var(--mut)" stroke-width="${sw}" stroke-linecap="round"/>`;
+  if(lab)o+=`<text x="${x}" y="${y1}" text-anchor="middle" font-size="${hl[v]?14:12.5}" font-weight="${hl[v]?800:600}" fill="${hl[v]||'var(--mut)'}">${v}</text>`}
+ P.forEach((v,i)=>{if(!known[i])return;const c=i==0?'var(--ink)':cols[i-1],x=X(v);
+  o+=`<circle cx="${x}" cy="${base}" r="5" fill="${c}"/>`;
+  if(rows[i])o+=`<text x="${x}" y="${rows[i]==1?y2:y3}" text-anchor="middle" font-size="14.5" font-weight="800" fill="${c}">${v}</text>`});
+ d.j.forEach((v,i)=>{if(!vis[i])return;
+  const x1=X(P[i]),x2=X(P[i+1]),below=mix&&i==1,w=Math.abs(x2-x1),h=below?11:Math.min(19,Math.max(9,w*.35)),cx=(x1+x2)/2,
+   sy=below?ys:base-5,cy=below?sy+2*h:sy-2*h,c=cols[i],L=Math.min(9,Math.max(4,w*.45)),ang=Math.atan2(sy-cy,x2-cx),
+   p1=[x2-L*Math.cos(ang-.5),sy-L*Math.sin(ang-.5)],p2=[x2-L*Math.cos(ang+.5),sy-L*Math.sin(ang+.5)],ly=below?sy+h+14:sy-h-4;
+  o+=`<path d="M${x1} ${sy} Q${cx} ${cy} ${x2} ${sy}" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/><path d="M${x2} ${sy} L${p1[0].toFixed(1)} ${p1[1].toFixed(1)} L${p2[0].toFixed(1)} ${p2[1].toFixed(1)}Z" fill="${c}" stroke="${c}" stroke-width="1.5" stroke-linejoin="round"/><text x="${cx}" y="${ly}" text-anchor="middle" font-size="15" font-weight="800" fill="${c}">${f(v)}</text>`});
+ return o+'</svg>'}
+let G=null;
+function menu(){
+ G=null;const no=RGN[S.rg]==10;
+ app.innerHTML=`<h1>Rechentrainer</h1><p class="lead">Addition und Subtraktion üben. Bitte vor dem Start einstellen.</p>
+ <h2 style="--c:var(--acc)">Rechenart</h2><div class="seg s3" role="group" aria-label="Rechenart" data-c="b">${OPS.map((o,i)=>`<button class="sg" data-m="${i}" aria-pressed="${S.mode==i}">${o}</button>`).join('')}</div>
+ <h2 style="--c:#d9640f">Zahlenraum</h2><div class="seg s4" role="group" aria-label="Zahlenraum" data-c="o">${RGN.map((r,i)=>`<button class="sg" data-r="${i}" aria-pressed="${S.rg==i}">bis ${r}</button>`).join('')}</div>
+ <h2 style="--c:#8a45c7">Hilfe beim Zehnerübergang</h2><div class="seg s2" role="group" aria-label="Hilfe beim Zehnerübergang" data-c="p"><button class="sg" data-h="1" aria-pressed="${S.help&&!no}" ${no?'disabled':''}>Ja</button><button class="sg" data-h="0" aria-pressed="${!S.help||no}">Nein</button></div>
+ <p class="note">${no?'Im Zahlenraum bis 10 gibt es keinen Zehnerübergang.':'Bei „Ja“ können die Kinder die zweite Zahl in zwei Teile zerlegen, wenn die Aufgabe einen Zehnerübergang hat. Die erste Zahl füllt die Zehn voll, die zweite ist der Rest.'}</p>
+ <h2 style="--c:#1f8a4c">Anzahl der Aufgaben</h2><div class="seg s4" role="group" aria-label="Anzahl" data-c="g">${NUM.map(n=>`<button class="sg" data-n="${n}" aria-pressed="${S.n==n}">${n}</button>`).join('')}</div>
+ <button class="primary" id="go">Starten</button>`;
+ app.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{S.mode=+b.dataset.m;save();menu()});app.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{S.rg=+b.dataset.r;save();menu()});
+ app.querySelectorAll('[data-h]').forEach(b=>b.onclick=()=>{S.help=b.dataset.h=='1';save();menu()});app.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{S.n=+b.dataset.n;save();menu()});
+ $('#go').onclick=start}
+function start(){G={tasks:newTasks(),i:0,res:[]};load()}
+function load(){const t=G.tasks[G.i];Object.assign(G,{t,v:{ans:'',f1:'',f2:'',m:'',r:''},act:'ans',sp:{open:false,valid:false},mOk:false,done:false,tries:0,helped:false,hi:0,stage:'',msg:null,nl:false,rev:0});draw()}
+const can=()=>S.help&&G.t.m>10&&G.t.inf;
+function fld(name,cls=''){const j=name=='m'?'j1':name=='r'?'j2':G.sp.valid&&name=='f1'?'j1':G.sp.valid&&name=='f2'?'j2':'',v=G.v[name],ok=(name=='f1'||name=='f2')?G.sp.valid:name=='m'?G.mOk:(name=='ans'||name=='r')&&G.done;return`<button class="fld ${cls} ${j} ${G.act==name&&!ok&&!G.done?'act':''} ${ok?'ok':''}" data-f="${name}" aria-label="Eingabefeld">${v}</button>`}
+function draw(){
+ const t=G.t,{a,b,k,inf}=t,sp=G.sp,tree=sp.open;
+ const bHTML=can()?`<span class="bw"><button class="n sp" id="bb" aria-label="Zahl ${b} in zwei Zahlen teilen">${b}</button>${tree?'':'<small class="cap">teilen</small>'}</span>`:`<span class="n">${b}</span>`;
+ const main=tree?`<span class="n">?</span>`:fld('ans');
+ const steps=sp.valid?`<div class="steps"><div class="st"><small>Schritt 1</small><span>${a} ${k} <b class="j1">${inf.c}</b> =</span>${fld('m','sm')}</div><div class="st"><small>Schritt 2</small><span>${G.mOk?inf.mid:'…'} ${k} <b class="j2">${inf.rest}</b> =</span>${fld('r','sm')}</div></div>`:'';
+ app.innerHTML=`<div class="play${G.nl?' wnl':''}"><div class="pl"><div class="head noprint"><button id="ex">Beenden</button><span>Aufgabe ${G.i+1} von ${G.tasks.length}</span><span style="width:84px"></span></div><div class="bar" aria-hidden="true"><i style="width:${G.i/G.tasks.length*100}%"></i></div>
+ <div class="card"><div class="eq${can()&&!tree?' hascap':''}" aria-label="${a} ${k=='+'?'plus':'minus'} ${b}"><span class="n">${a}</span><span class="op">${k}</span>${bHTML}<span class="op">=</span>${main}</div>${tree?`<div class="treebox" id="tb"><svg aria-hidden="true"><line/><line/></svg><div class="tw" id="tw1">${fld('f1','sm')}</div><div class="tw" id="tw2">${fld('f2','sm')}</div></div>`:''}${steps}${G.nl?`<div class="nlw">${nlSVG()}</div>`:''}</div>
+ <div class="msg ${G.msg?G.msg[1]:'info'}" id="msg" aria-live="polite">${G.msg?G.msg[0]:(can()&&!tree?'Tippe auf die '+b+', um sie zu teilen. Du kannst auch direkt rechnen.':S.help&&t.m>10&&!t.inf?'Hier gibt es keinen Zehnerübergang. Rechne direkt.':'Gib das Ergebnis ein und tippe auf OK.')}</div>
+ </div><div class="pr">${G.done?`<button class="next" id="nx">${G.i+1<G.tasks.length?'Nächste Aufgabe':'Fertig'}</button>`:`<div class="tools${tree?' t3':''}"><button class="help" id="hp">Hilfe</button><button class="help" id="nlb" aria-pressed="${G.nl}">Zahlenstrahl</button><button class="help" id="un" ${tree?'':'hidden'}>Teilung entfernen</button></div>`}
+ <div class="pad ${G.done?'off':''}" aria-label="Tastenfeld">${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="k" data-k="${n}">${n}</button>`).join('')}<button class="k" data-k="x" aria-label="Löschen">⌫</button><button class="k" data-k="0">0</button><button class="k ok" data-k="ok">OK</button></div></div></div>`;
+ $('#ex').onclick=menu;if($('#bb'))$('#bb').onclick=openSplit;if($('#hp'))$('#hp').onclick=help;if($('#nlb'))$('#nlb').onclick=()=>{G.nl=!G.nl;if(G.nl&&!G.done)G.helped=true;draw()};if($('#un'))$('#un').onclick=()=>{G.sp={open:false,valid:false};G.mOk=false;G.v.f1=G.v.f2=G.v.m=G.v.r='';G.act='ans';G.msg=null;draw()};if($('#nx'))$('#nx').onclick=nextTask;
+ app.querySelectorAll('.fld').forEach(f=>f.onclick=()=>{if(!G.done){G.act=f.dataset.f;draw()}});app.querySelectorAll('.k').forEach(b=>b.onclick=()=>key(b.dataset.k));
+ layoutTree()}
+function layoutTree(){
+ const tb=$('#tb'),bb=$('#bb');if(!tb||!bb)return;
+ const t1=$('#tw1'),t2=$('#tw2'),W=tb.clientWidth,tr=tb.getBoundingClientRect(),br=bb.getBoundingClientRect(),bx=br.left+br.width/2-tr.left;
+ const w1=t1.offsetWidth,w2=t2.offsetWidth,sep=10;
+ let c1=bx-Math.max(64,w1/2+sep/2+14),c2=bx+Math.max(64,w2/2+sep/2+14);
+ if(c2-c1<(w1+w2)/2+sep){const m=(c1+c2)/2,d=((w1+w2)/2+sep)/2;c1=m-d;c2=m+d}
+ if(c1<w1/2+4){const d=w1/2+4-c1;c1+=d;c2+=d}
+ if(c2>W-w2/2-4){const d=c2-(W-w2/2-4);c1-=d;c2-=d}
+ if(c1<w1/2+4)c1=w1/2+4;
+ const L=tb.querySelectorAll('line'),LH=tb.querySelector('svg').getBoundingClientRect().height,set=(l,x2)=>{l.setAttribute('x1',bx);l.setAttribute('y1',2);l.setAttribute('x2',x2);l.setAttribute('y2',LH)};set(L[0],c1);set(L[1],c2);
+ t1.style.left=c1+'px';t2.style.left=c2+'px'}
+function openSplit(){if(G.done)return;if(!G.sp.open){G.sp.open=true;G.act='f1';G.msg=['Teile die '+G.t.b+' in zwei Zahlen. Tippe auf ein Feld und gib eine Zahl ein.','info']}draw()}
+function say(t,c){G.msg=[t,c];draw()}
+function key(k){
+ if(G.done)return;if(k=='ok')return check();
+ const f=G.act;if(k=='x')G.v[f]=G.v[f].slice(0,-1);else if(G.v[f].length<4)G.v[f]+=k;
+ draw()}
+function check(){
+ const t=G.t,{a,b,k,r,inf}=t,v=G.v,f=G.act;
+ if(f=='f1'||f=='f2'){
+  if(v.f1===''||v.f2===''){const e=v.f1===''?'f1':'f2';G.act=e;return say('Fülle beide Felder aus.','info')}
+  const x=+v.f1,y=+v.f2,s=x+y;
+  if(s!=b)return say(`Das passt nicht: ${x} + ${y} = ${s}. Die zwei Zahlen müssen zusammen ${b} ergeben. Sie sind zusammen zu ${s>b?'groß':'klein'}.`,'err');
+  if(x!=inf.c&&y!=inf.c)return say(`Das passt zusammen. Aber eine Zahl soll die Zehn voll machen: ${a} ${k} ? = ${inf.mid}.`,'err');
+  if(+v.f1!=inf.c){const q=v.f1;v.f1=v.f2;v.f2=q}G.sp.valid=true;G.act='m';return say('Richtig geteilt. Rechne jetzt Schritt 1.','ok')}
+ if(v[f]==='')return say('Gib zuerst eine Zahl ein.','info');
+ const val=+v[f];
+ if(f=='m'){if(val==inf.mid){G.mOk=true;G.act='r';return say(`Richtig: ${a} ${k} ${inf.c} = ${inf.mid}. Weiter mit Schritt 2.`,'ok')}v.m='';return say(`Das stimmt nicht. Rechne ${a} ${k} ${inf.c}.`,'err')}
+ if(val==r){G.done=true;G.res.push({t,ok:G.tries==0&&!G.helped,tries:G.tries,helped:G.helped});v.ans=v.r=String(r);return say('Richtig.','ok')}
+ G.tries++;v[f]='';
+ say(f=='r'?`Das stimmt noch nicht. Rechne ${inf.mid} ${k} ${inf.rest}.`:'Das stimmt noch nicht. Versuche es noch einmal oder tippe auf „Hilfe“.','err')}
+function help(){
+ if(G.done)return;const L=hintList(),sg=''+G.sp.open+G.sp.valid+G.mOk;if(G.stage!==sg){G.stage=sg;G.hi=0}
+ const h=L[Math.min(G.hi,L.length-1)];G.hi++;G.helped=true;nlReveal();say('Hilfe: '+h,'hint')}
+function nextTask(){G.i++;if(G.i>=G.tasks.length)return end();load()}
+function end(){
+ const ok=G.res.filter(x=>x.ok).length,n=G.res.length;
+ app.innerHTML=`<h1>Geschafft</h1><p class="lead">${ok} von ${n} Aufgaben ohne Fehler und ohne Hilfe gelöst.</p>
+ <table><thead><tr><th>Aufgabe</th><th>Ergebnis</th><th>Bearbeitung</th></tr></thead><tbody>${G.res.map(x=>`<tr><td>${x.t.a} ${x.t.k} ${x.t.b}</td><td>${x.t.r}</td><td>${x.ok?'ohne Hilfe':x.helped&&!x.tries?'mit Hilfe':x.helped?'mit Hilfe, '+x.tries+' Fehlversuch'+(x.tries>1?'e':''):x.tries+' Fehlversuch'+(x.tries>1?'e':'')}</td></tr>`).join('')}</tbody></table>
+ <button class="primary noprint" id="ag">Noch einmal</button><button class="sec noprint" id="pr">Drucken</button><button class="sec noprint" id="mn">Zurück zum Startmenü</button>`;
+ $('#ag').onclick=start;$('#mn').onclick=menu;$('#pr').onclick=()=>window.print()}
+addEventListener('keydown',e=>{if(!G||!G.t)return;if(G.done){if(e.key=='Enter'){e.preventDefault();nextTask()}return}if(/^\d$/.test(e.key))key(e.key);else if(e.key=='Backspace')key('x');else if(e.key=='Enter')check()});
+addEventListener('resize',layoutTree);
+window.RT={gen,info,S:()=>S,G:()=>G,newTasks};menu();
+</script></body></html>
